@@ -1,0 +1,14 @@
+
+spring:
+  application:
+    name: wechat-jenkins
+
+server:
+  port: 10010
+
+#  微信公众号后台配置
+wechat:
+  app-id: wx2c91394458d759ef
+  app-secret: 819371d5096ab1ab52fa4d12dd7861e6
+  token: abc
+
