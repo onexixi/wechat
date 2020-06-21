@@ -16,8 +16,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<springfox-swagger2.version>2.8.0</springfox-swagger2.version>
-	</properties>
+		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <springfox-activemq.version>1.5.0.RELEASE</springfox-activemq.version>
+        <springfox-activemq-pool.version>5.15.0</springfox-activemq-pool.version>
+    </properties>
 
 	<dependencies>
 		<dependency>
@@ -71,7 +73,18 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox-swagger2.version}</version>
 		</dependency>
-
+<!--        ActiveMq-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+            <version>${springfox-activemq.version}</version>
+        </dependency>
+        <!--消息队列连接池-->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-pool</artifactId>
+            <version>${springfox-activemq-pool.version}</version>
+        </dependency>
 	</dependencies>
 
 	<build>
