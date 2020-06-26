@@ -1,3 +1,3 @@
 # wechat
 
-jenkins 构建结果通知微信公众号
+微信公众号，mock activemq
