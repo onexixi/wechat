@@ -16,24 +16,25 @@ import javax.jms.Topic;
 @Slf4j
 public class ProducerController {
 
-    @Autowired
-    @Qualifier("firstActivemqTemplate")
-    private JmsMessagingTemplate firstActivemqTemplate;
+    private final JmsMessagingTemplate firstActivemqTemplate;
 
 
-    @Autowired
-    @Qualifier("secondActivemqTemplate")
-    private JmsMessagingTemplate secondActivemqTemplate;
+    private final JmsMessagingTemplate secondActivemqTemplate;
 
-    @Autowired
-    private Queue firstQueue;
-    @Autowired
-    private Topic firstTopic;
+    private final Queue firstQueue;
+    private final Topic firstTopic;
 
-    @Autowired
-    private Queue secondQueue;
-    @Autowired
-    private Topic secondTopic;
+    private final Queue secondQueue;
+    private final Topic secondTopic;
+
+    public ProducerController(@Qualifier("secondActivemqTemplate") JmsMessagingTemplate secondActivemqTemplate, @Qualifier("firstActivemqTemplate") JmsMessagingTemplate firstActivemqTemplate, Queue firstQueue, Topic firstTopic, Queue secondQueue, Topic secondTopic) {
+        this.secondActivemqTemplate = secondActivemqTemplate;
+        this.firstActivemqTemplate = firstActivemqTemplate;
+        this.firstQueue = firstQueue;
+        this.firstTopic = firstTopic;
+        this.secondQueue = secondQueue;
+        this.secondTopic = secondTopic;
+    }
 
     @PostMapping("/queue/test")
     public String sendQueue(@RequestBody String str) {
