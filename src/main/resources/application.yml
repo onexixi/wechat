@@ -79,9 +79,9 @@ pool:
 spring.cloud:
   stream:
     #消息中间件定义 default_rabbit
-    defaultBinder: xxaibank_rabbit
+    defaultBinder: local_rabbit
     binders:
-      xxaibank_rabbit:
+      local_rabbit:
         type: rabbit
         environment:
           spring:
@@ -110,13 +110,13 @@ spring.cloud:
     bindings:
       personalRegisterExpand_output: #账户接口-个人绑卡注册
         destination: xxaibank.mq.exchange.personalRegisterExpand
-        binder: xxaibank_rabbit
+        binder: local_rabbit
         content-type:  application/json
         group: xxaibank.mq.queue.personalRegisterExpand
         producer:
           requiredGroups: xxaibank.mq.queue.personalRegisterExpand
       personalRegisterInput:
         destination: xxaibank.mq.exchange.personalRegisterExpand
-        binder: xxaibank_rabbit
+        binder: local_rabbit
         content-type: application/json
         group: xxaibank.mq.queue.personalRegisterExpand
