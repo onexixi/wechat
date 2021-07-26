@@ -4,9 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsMessagingTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.jms.Destination;
 import javax.jms.Queue;
@@ -26,6 +24,10 @@ public class ProducerController {
 
     private final Queue secondQueue;
     private final Topic secondTopic;
+
+    @Autowired
+    private  Sender sender;
+
 
     public ProducerController(@Qualifier("secondActivemqTemplate") JmsMessagingTemplate secondActivemqTemplate, @Qualifier("firstActivemqTemplate") JmsMessagingTemplate firstActivemqTemplate, Queue firstQueue, Topic firstTopic, Queue secondQueue, Topic secondTopic) {
         this.secondActivemqTemplate = secondActivemqTemplate;
@@ -49,6 +51,13 @@ public class ProducerController {
         this.sendSecondMessage (this.secondTopic, str);
         return "success";
     }
+
+    @GetMapping("/topic/sendMessageChannel")
+    public String sendMessageChannel(@RequestParam String str) {
+        sender.sendMessageChannel(str);
+        return"success";
+    }
+
 
     // 发送消息，destination是发送到的队列，message是待发送的消息
     private void sendFirstMessage(Destination destination, final String message) {

@@ -19,6 +19,7 @@
 		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <springfox-activemq.version>1.5.0.RELEASE</springfox-activemq.version>
         <springfox-activemq-pool.version>5.15.0</springfox-activemq-pool.version>
+		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
     </properties>
 
 	<dependencies>
@@ -30,7 +31,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -86,7 +90,17 @@
             <version>${springfox-activemq-pool.version}</version>
         </dependency>
 	</dependencies>
-
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<plugins>
 			<plugin>
