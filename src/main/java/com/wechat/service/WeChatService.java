@@ -12,4 +12,6 @@ public interface WeChatService {
      * @return
      */
     String weChatCheck(WeChatCheckDTO weChatCheckDTO);
+
+    String taskMethod();
 }
