@@ -1,3 +1,5 @@
 # wechat
 
-微信公众号，mock activemq
+微信公众号
+rabbitMQ springboot stream
+xxljob
