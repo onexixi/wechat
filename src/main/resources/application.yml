@@ -8,12 +8,12 @@ server:
 
 #  微信公众号后台配置
 wechat:
-  app-id: wx2c91394458d759ef
-  app-secret: 819371d5096ab1ab52fa4d12dd7861e6
+  app-id: XXX
+  app-secret: XXX
   token: abc
 activemq:
     first:
-       broker-url: tcp://139.199.81.196:61617
+       broker-url: tcp://XXX:XXX
        user: admin
        password: admin
        close-timeout: 15   # 在考虑结束之前等待的时间
@@ -24,7 +24,7 @@ activemq:
        topic-name: active.topic.name.first-model
        client-id: 1
     second:
-       broker-url: tcp://139.199.81.196:61616
+       broker-url: tcp://XX:XX
        user: admin
        password: admin
        close-timeout: 15   # 在考虑结束之前等待的时间
