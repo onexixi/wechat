@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <springfox-swagger2.version>2.10.0</springfox-swagger2.version>
         <springfox-activemq.version>1.5.0.RELEASE</springfox-activemq.version>
         <springfox-activemq-pool.version>5.15.0</springfox-activemq-pool.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
